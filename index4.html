@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Components
+		</title>
+		<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+		<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/babel">
+			var Comment = React.createClass({
+				edit:function(){
+					alert("Editing the comment!");
+				},
+				remove:function(){
+					alert("Removing the comment!");
+				},
+				render:function(){
+					return(
+						<div className="commentContainer">
+							<div className="commentText">
+								{this.props.children}
+							</div>
+								<button onClick={this.edit} className="button-primary">Edit</button>
+								<button onClick={this.remove} className="button-primary">Remove</button>
+						</div>
+					);
+				}
+			});
+			ReactDOM.render(
+				<div className="board">
+					<Comment>Hey my  name is Himanshu</Comment>
+					<Comment>Eggs</Comment>
+					<Comment>Bacon</Comment>
+				</div>,
+				document.getElementById("root")
+			);
+		</script>
+	</body>
+</html>
